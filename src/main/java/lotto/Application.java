@@ -6,10 +6,11 @@ public class Application {
         //구매금액을 입력하라는 문구를 출력
         Output.purchasePrice();
         //구매금액을 입력받기 & 입력받은 금액 Price 에 기억시키기
-        Price puchasedPrice = new Price(Input.purchasePrice());
+        Price purchasedPrice = new Price(Input.purchasePrice());
         //구매한 금액 출력
-        Output.purchasedPrice(puchasedPrice);
-
+        Output.purchasedPrice(purchasedPrice);
+        //구매한 갯수 출력
+        Output.purchasedMount(purchasedPrice);
     }
 
 }
