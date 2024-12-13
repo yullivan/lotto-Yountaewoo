@@ -1,7 +1,6 @@
 package lotto;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class LottoNumbers {
     private List<LottoNumber> lottoNumbers;
@@ -34,6 +33,21 @@ public class LottoNumbers {
     public List<LottoNumber> matchNumbers (List<LottoNumber> answer) {
         this.lottoNumbers.retainAll(answer);
         return this.lottoNumbers;
+    }
+
+    //랜덤으로 6개의 번호를 뽑는 함수
+    public List<LottoNumber> randomNumbers () {
+        List<Integer> oneFourtyfive = new ArrayList<>();
+        for (int i = 1; i < 46; i++) {
+            oneFourtyfive.add(i);
+        }
+        Collections.shuffle(oneFourtyfive);
+        oneFourtyfive.subList(0,6);
+        List<LottoNumber> randomNumbers = new ArrayList<>();
+        for (Integer i : oneFourtyfive) {
+            randomNumbers.add(new LottoNumber(i));
+        }
+        return randomNumbers;
     }
 
 
