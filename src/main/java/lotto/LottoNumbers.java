@@ -29,4 +29,12 @@ public class LottoNumbers {
     public List<LottoNumber> getLottoNumbers() {
         return lottoNumbers;
     }
+
+    //당첨 번호와 일치한 번호들 찾는 함수
+    public List<LottoNumber> matchNumbers (List<LottoNumber> answer) {
+        this.lottoNumbers.retainAll(answer);
+        return this.lottoNumbers;
+    }
+
+
 }
