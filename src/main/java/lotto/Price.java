@@ -24,4 +24,8 @@ public class Price {
     public int hashCode() {
         return Objects.hashCode(price);
     }
+
+    public int getPrice() {
+        return price;
+    }
 }
