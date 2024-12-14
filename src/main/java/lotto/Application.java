@@ -1,5 +1,7 @@
 package lotto;
 
+import java.util.List;
+
 public class Application {
 
     public static void main(String[] args) {
@@ -15,9 +17,12 @@ public class Application {
         Output.purchasedLottoList(purchasedPrice);
         //당첨번호들 물어보기
         Output.winningNumber();
-        //당첨번호 입력 받기 & LottoNumbers 로 바꾸기
-        LottoNumbers.changeInteger(Input.winningNumbers());
-
+        //당첨번호 입력 받기
+        List<Integer> winningNumber = Input.winningNumbers();
+        //LottoNumbers 로 바꾸기
+        LottoNumbers.changeInteger(winningNumber);
+        // 입력받은 당첨번호 보여주기
+        Output.inputWinningNumber(winningNumber);
     }
 
 }
