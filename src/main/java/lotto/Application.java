@@ -11,6 +11,8 @@ public class Application {
         Output.purchasedPrice(purchasedPrice);
         //구매한 갯수 출력
         Output.purchasedMount(purchasedPrice);
+        //구매한 로또 번호들 나열
+        Output.purchasedLottoList(purchasedPrice);
     }
 
 }

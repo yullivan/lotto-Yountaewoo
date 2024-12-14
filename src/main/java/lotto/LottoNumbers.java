@@ -6,10 +6,10 @@ public class LottoNumbers {
     private List<LottoNumber> lottoNumbers;
 
     public LottoNumbers(List<LottoNumber> lottoNumbers) {
-        if (lottoNumbers.size() != 6) {
+        if (lottoNumbers == null || lottoNumbers.size() != 6) {
             throw new IllegalArgumentException("[ERROR] 로또의 번호들은 총 6개 입니다.");
         }
-        this.lottoNumbers = lottoNumbers;
+        this.lottoNumbers = new ArrayList<>(lottoNumbers);
     }
 
     @Override
@@ -29,6 +29,14 @@ public class LottoNumbers {
         return lottoNumbers;
     }
 
+    public List<Integer> getLottoNumbersAsIntegerList() {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (LottoNumber lottoNumber : lottoNumbers) {
+           numbers.add(lottoNumber.getNumber());
+        }
+        return numbers;
+    }
+
     //당첨 번호와 일치한 번호들 찾는 함수
     public List<LottoNumber> matchNumbers (List<LottoNumber> answer) {
         this.lottoNumbers.retainAll(answer);
@@ -36,18 +44,18 @@ public class LottoNumbers {
     }
 
     //랜덤으로 6개의 번호를 뽑는 함수
-    public List<LottoNumber> randomNumbers () {
-        List<Integer> oneFourtyfive = new ArrayList<>();
+    public static LottoNumbers randomNumbers () {
+        List<Integer> oneFourtyFive = new ArrayList<>();
         for (int i = 1; i < 46; i++) {
-            oneFourtyfive.add(i);
+            oneFourtyFive.add(i);
         }
-        Collections.shuffle(oneFourtyfive);
-        oneFourtyfive.subList(0,6);
+        Collections.shuffle(oneFourtyFive);
+
         List<LottoNumber> randomNumbers = new ArrayList<>();
-        for (Integer i : oneFourtyfive) {
-            randomNumbers.add(new LottoNumber(i));
+        for (int i = 0; i < 6; i++) {
+            randomNumbers.add(new LottoNumber(oneFourtyFive.get(i)));
         }
-        return randomNumbers;
+        return new LottoNumbers(randomNumbers);
     }
 
 
