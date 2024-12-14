@@ -13,6 +13,9 @@ public class Application {
         Output.purchasedMount(purchasedPrice);
         //구매한 로또 번호들 나열
         Output.purchasedLottoList(purchasedPrice);
+        //지난주 로또 번호들 물어보기
+        Output.winningNumber();
+
     }
 
 }
