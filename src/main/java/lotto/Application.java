@@ -13,8 +13,10 @@ public class Application {
         Output.purchasedMount(purchasedPrice);
         //구매한 로또 번호들 나열
         Output.purchasedLottoList(purchasedPrice);
-        //지난주 로또 번호들 물어보기
+        //당첨번호들 물어보기
         Output.winningNumber();
+        //당첨번호 입력 받기 & LottoNumbers 로 바꾸기
+        LottoNumbers.changeInteger(Input.winningNumbers());
 
     }
 

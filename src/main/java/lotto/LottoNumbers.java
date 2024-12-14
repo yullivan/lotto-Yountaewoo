@@ -32,19 +32,19 @@ public class LottoNumbers {
     public List<Integer> getLottoNumbersAsIntegerList() {
         ArrayList<Integer> numbers = new ArrayList<>();
         for (LottoNumber lottoNumber : lottoNumbers) {
-           numbers.add(lottoNumber.getNumber());
+            numbers.add(lottoNumber.getNumber());
         }
         return numbers;
     }
 
     //당첨 번호와 일치한 번호들 찾는 함수
-    public List<LottoNumber> matchNumbers (List<LottoNumber> answer) {
+    public List<LottoNumber> matchNumbers(List<LottoNumber> answer) {
         this.lottoNumbers.retainAll(answer);
         return this.lottoNumbers;
     }
 
     //랜덤으로 6개의 번호를 뽑는 함수
-    public static LottoNumbers randomNumbers () {
+    public static LottoNumbers randomNumbers() {
         List<Integer> oneFourtyFive = new ArrayList<>();
         for (int i = 1; i < 46; i++) {
             oneFourtyFive.add(i);
@@ -58,5 +58,13 @@ public class LottoNumbers {
         return new LottoNumbers(randomNumbers);
     }
 
-
+    //Integer 리스트를 로또 번호로 바꾸는 함수
+    public static LottoNumbers changeInteger (List<Integer> winningNumber) {
+        List<LottoNumber> numbers = new ArrayList<>();
+        for (Integer number : winningNumber) {
+            numbers.add(new LottoNumber(number));
+        }
+        LottoNumbers changeInteger = new LottoNumbers(numbers);
+        return changeInteger;
+    }
 }
